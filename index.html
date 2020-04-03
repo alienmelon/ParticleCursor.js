@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>A javascript particle cursor effect for websites...</title>
+
+<style>
+
+	body{
+		background-color: white;
+		color: grey;
+	}
+	
+	div{
+		width: auto;
+	}
+	
+	._mouseOver{
+		border: 1px solid black;
+		padding: 15px 32px;
+	}
+	
+	._mouseClick{
+		border: 1px solid grey;
+		cursor: pointer;
+		padding: 15px 32px;
+	}
+	
+</style>
+
+<script src="particlecursor.js"></script>
+
+</head>
+
+<body onload="particlecursor(20, 'flame');">
+	<!-- test content !-->
+<center><h1>ParticleCursor.js adds a cute particle effect to your cursor...</h1></center>
+<center><h3>Sound interesting? Play around with some of the modes below!</m3></center>
+<br><br>
+<center>
+<button class="_mouseOver" onmouseover="set_particlecursorMood(1)">Mouse over this to change to hearts!</button>
+<br><br>
+<button class="_mouseOver" onmouseover="set_particlecursorMood(2)">Mouse over this to change to happy! :D faces!</button>
+<br><br>
+<button class="_mouseOver" onmouseover="set_particlecursorMood(3)">Mouse over this for a bad mood :(</button>
+<br><br>
+<button class="_mouseClick" onclick="change_particlecursorType('wisp')">Click this to change to a wisp!</button>
+<button class="_mouseClick" onclick="change_particlecursorType('flame')">Click this to change to a flame!</button>
+<br><br>
+<button class="_mouseOver" onmouseover="stop_particlecursor()">Mouse over this to pause the cursor...</button>
+<button class="_mouseOver" onmouseover="start_particlecursor()">Mouse over this to start it again!</button>
+</center>
+<br>
+<h2>Bored of your cursor? Is the mouse uninteresting? Want something cute to liven up your page? Well...</h2>
+ParticleCursor.js is just for you!<br>
+This will work on any website, and it's easy to add.<br>
+There are a number of functions for setting the mood of your cursor (changing the images), and two cursor modes (wisp, and flame).
+<br><br>
+To install simply add <em>particlecursor.js</em> and the <em>particlecursor_images</em> folder in the same directory as your page. Then add...<br><br>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #333333">&lt;</span>body onload<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;particlecursor(20, &#39;flame&#39;);&quot;</span><span style="color: #333333">&gt;</span>
+</pre></div><br>
+To your page's head tag for page load. You can alternatively bind this to any other button event or load event.<br>
+The <em>particlecursor</em> function call accepts two function parrameters. The first is the particle amount (1 minimum to 25 maximum). The second is the effect type.<br>
+There are two effects. "flame" and "wisp".<br>
+<em>"flame"</em> is a default fire effect. This is ideal if you want to change the particle sprites to fire and simulate a hellsite.<br>
+<em>"wisp"</em> is a gentler version. It simulates a cute puff of magic. This is ideal for enchanted websites.
+<br><br>
+You can set the particle mood by calling...<br>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">set_particlecursorMood(<span style="color: #0000DD; font-weight: bold">1</span>)
+</pre></div><br>
+With a number range of 1-3. This determines what images are used for the cursor.<br>
+In the <em>particlecursor.js</em> javascript file are these arrays...<br><br>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">//array of images used for the burn sprites (can have multiple types of images)</span>
+<span style="color: #008800; font-weight: bold">var</span> arr_particlecursor_imgMood01 <span style="color: #333333">=</span> [<span style="background-color: #fff0f0">&quot;IMG_HEART_02.gif&quot;</span>, <span style="background-color: #fff0f0">&quot;IMG_HEART_01.gif&quot;</span>];
+<span style="color: #008800; font-weight: bold">var</span> arr_particlecursor_imgMood02 <span style="color: #333333">=</span> [<span style="background-color: #fff0f0">&quot;IMG_HAPPY_01.gif&quot;</span>, <span style="background-color: #fff0f0">&quot;IMG_HAPPY_02.gif&quot;</span>, <span style="background-color: #fff0f0">&quot;IMG_HAPPY_03.gif&quot;</span>, <span style="background-color: #fff0f0">&quot;IMG_HAPPY_04.gif&quot;</span>, <span style="background-color: #fff0f0">&quot;IMG_HAPPY_05.gif&quot;</span>];
+<span style="color: #008800; font-weight: bold">var</span> arr_particlecursor_imgMood03 <span style="color: #333333">=</span> [<span style="background-color: #fff0f0">&quot;IMG_BADMOOD_03.gif&quot;</span>, <span style="background-color: #fff0f0">&quot;IMG_BADMOOD_01.gif&quot;</span>, <span style="background-color: #fff0f0">&quot;IMG_BADMOOD_02.gif&quot;</span>];
+</pre></div><br>
+You can easily swap out the image names for your own images. (note that names must be strings)<br>
+The <em>particlecursor.js</em> file lends for some easy customization!<br>
+At the end of the javascript file is a function for checking against mobile so it doesn't run on touchscreen devices (assuming that's a thing people don't want). You can comment that in, and call <em>particlecursor_mobile(20, 'flame');</em> instead of <em>particlecursor(20, 'flame');</em>
+<br><br>
+If you have had enough of particle cursor (and want to completely stop it) then call...
+<br><br>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">particlecursor_clearParticles()
+</pre></div>
+<br><br>
+This will completely delete and clear all particles.
+<br><br>
+<hr>
+<center><h4>This started out as a little joke, that turned into something more or less serious. I'll be using it on the next site I make :) If you use it on your own site I'd love to know! Thank you, hope you enjoy <img src="particlecursor_images/IMG_HEART_02.gif" alt="heart"></h4></center>
+<br><br>
+<br><br>
+<br><br>
+</body>
+</html>
